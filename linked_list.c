@@ -14,7 +14,7 @@ void insert_at_head(struct linked_list *list, size_t value) {
   struct list_node *old_head = list->head;
 
   if (old_head == NULL) {
-    old_head = new_node(value);
+    list->head = new_node(value);
   } else {
     struct list_node *new_head = new_node(value);
     new_head->next = old_head;
@@ -74,6 +74,7 @@ size_t remove_from_tail(struct linked_list *list) {
       list->head = NULL;
       return value;
     } else {
+      old_pos = list->head;
       while (old_pos->next->next != NULL) {
         old_pos = old_pos->next;
       }
@@ -82,14 +83,14 @@ size_t remove_from_tail(struct linked_list *list) {
       value = new_tail->next->value;
       free(new_tail->next);
       new_tail->next = NULL;
-      return value; 
+      return value;
     }
   }
 }
 
 void free_list(struct linked_list list) {
-  struct list_node* pos = list.head;
-  struct list_node* temp;
+  struct list_node *pos = list.head;
+  struct list_node *temp;
 
   if (pos == NULL) {
     free(list.head);

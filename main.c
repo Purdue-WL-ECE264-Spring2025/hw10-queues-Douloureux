@@ -39,5 +39,6 @@ int main(int argc, char **argv) {
     exit(3);
   }
 
+  fprintf(stdout, "Test Passed!\n");
   return 0;
 }
