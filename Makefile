@@ -8,6 +8,17 @@ APP = hw10
 $(APP): $(OBJS)
 	$(CC) $(CFLAGS) *.o -o $(APP)
 
+test1: $(APP)
+	./$(APP) testcases/1.txt
+
+test2: $(APP)
+	./$(APP) testcases/2.txt
+
+test3: $(APP)
+	./$(APP) testcases/3.txt
+
+test: $(APP) test1 test2 test3
+
 clean:
 	/bin/rm -rf *.o
 	/bin/rm -rf $(APP)
