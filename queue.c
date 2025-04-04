@@ -30,7 +30,7 @@ int is_solved(struct game_state status) {
     }
   }
 
-  return (check == 16);
+  return (check == 16) && (status.tiles[3][3] == 0);
 }
 
 int number_of_moves(struct game_state start) {
